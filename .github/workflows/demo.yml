@@ -16,12 +16,12 @@ jobs:
         with:
           context: .
           file: Dockerfile
-          push: false
           tags: my-image:latest
+          push: false
 
       - name: save image to tar
         run: |
-          docker save -o ~/test.tar myimage:latest
+          docker save -o ~/test.tar my-image:latest
 
       - name: List files in the repository
         run: |
