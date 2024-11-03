@@ -19,6 +19,10 @@ jobs:
           push: false
           tags: my-image:latest
 
+      - name: save image to tar
+        run: |
+          docker save -o ~/test.tar myimage:latest
+
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
