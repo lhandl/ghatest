@@ -20,10 +20,8 @@ jobs:
 #          push: false
 
       - name: Build Docker Image
-        uses: docker/exec-action@v2   
-        with:
-          commands: |
-            docker build -t my-image:latest .
+        run: |
+          docker build -t my-image:latest .
 
       - name: save image to tar
         run: |
