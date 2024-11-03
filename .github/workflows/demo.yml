@@ -11,13 +11,19 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build and Save Docker Image
-        uses: docker/build-push-action@v6
+#      - name: Build and Save Docker Image
+#        uses: docker/build-push-action@v6
+#        with:
+#          context: .
+#          file: Dockerfile
+#          tags: my-image:latest
+#          push: false
+
+      - name: Build Docker Image
+        uses: docker/exec-action@v2   
         with:
-          context: .
-          file: Dockerfile
-          tags: my-image:latest
-          push: false
+          commands: |
+            docker build -t my-image:latest .
 
       - name: save image to tar
         run: |
